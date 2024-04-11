@@ -1,0 +1,64 @@
+{
+  "name": "react-native-counter-animation",
+  "version": "1.0.0",
+  "description": "A number animation library for React Native",
+  "exports": {
+    ".": {
+      "import": "./dist/mjs/index.js",
+      "require": "./dist/cjs/index.js",
+      "types": "./dist/types/index.d.ts"
+    }
+  },
+  "main": "dist/cjs/index.js",
+  "module": "dist/mjs/index.js",
+  "types": "dist/types/index.d.ts",
+  "files": [
+    "dist",
+    "src/*"
+  ],
+  "author": "Alex Figliolia",
+  "license": "MIT",
+  "homepage": "https://github.com/alexfigliolia/react-native-counter-animation#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alexfigliolia/react-native-counter-animation.git"
+  },
+  "keywords": [
+    "react-native",
+    "react",
+    "animation"
+  ],
+  "scripts": {
+    "build": "npx ts-packager -e src",
+    "start": "tsx devtools/dev-server/CLI.ts",
+    "lint": "tsx ci/commands/Lint.ts",
+    "test": "tsx ci/commands/Test.ts"
+  },
+  "dependencies": {},
+  "peerDependencies": {
+    "react": "^18.2.0",
+    "react-native": "^0.73.6"
+  },
+  "devDependencies": {
+    "@figliolia/child-process": "^1.0.3",
+    "@figliolia/ts-packager": "^1.0.3",
+    "@types/node": "^16.7.13",
+    "@types/react-native": "^0.73.0",
+    "@types/react": "^18.2.75",
+    "@typescript-eslint/eslint-plugin": "^5.59.1",
+    "@typescript-eslint/parser": "^5.59.1",
+    "eslint": "^8.39.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-airbnb-typescript": "^17.0.0",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-import-resolver-typescript": "^3.5.5",
+    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-react": "^7.32.2",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-simple-import-sort": "^10.0.0",
+    "prettier": "^2.8.8",
+    "tsx": "^4.7.2",
+    "typescript": "^5.4.5"
+  }
+}
