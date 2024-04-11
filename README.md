@@ -1,7 +1,7 @@
 # React Native Counter Animation
 A number animation library for adding some flair to your data
 
-[Screenshot](media/rn-counter.gif)
+![Screenshot](media/animation.gif)
 
 ## Installation
 
@@ -56,3 +56,4 @@ const MyComponent = () => {
 `easing`: An easing function such as a Cubic Bezier
 
 `style`: Any styling you wish to apply to your text
+
