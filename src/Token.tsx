@@ -1,11 +1,11 @@
-import { Component } from "react";
+import { PureComponent } from "react";
 import type { EasingFunction, StyleProp, TextStyle } from "react-native";
 import { Animated, Text, View } from "react-native";
 import { Controller } from "./Controller";
 import { Styles } from "./Styles";
 import type { NodeList } from "./types";
 
-export class Token extends Component<Props> {
+export class Token extends PureComponent<Props> {
   private translateY = new Animated.Value(0);
 
   public override componentDidMount() {
@@ -17,10 +17,6 @@ export class Token extends Component<Props> {
       toValue: 1,
       useNativeDriver: true,
     }).start();
-  }
-
-  public override shouldComponentUpdate({ value }: Props) {
-    return value !== this.props.value;
   }
 
   public override render() {

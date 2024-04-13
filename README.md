@@ -36,8 +36,8 @@ const MyComponent = () => {
       {/* ...your component code */}
       <AnimatedNumber
         delay={200}
+        value={value}
         duration={700}
-        value="$12,000"
         easing={Easing.out(Easing.ease)}
         style={{ color: "#fff", fontWeight: "800" }} />
     </View>

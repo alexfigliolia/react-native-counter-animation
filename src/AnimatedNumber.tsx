@@ -39,8 +39,11 @@ export class AnimatedNumber extends Component<IAnimatedNumber, State> {
     }
   }
 
-  public override shouldComponentUpdate(_: IAnimatedNumber, nextState: State) {
-    return this.state !== nextState;
+  public override shouldComponentUpdate({ value }: IAnimatedNumber) {
+    if (value !== this.props.value) {
+      return false;
+    }
+    return true;
   }
 
   private onLayout = (e: LayoutChangeEvent) => {
@@ -100,13 +103,13 @@ export class AnimatedNumber extends Component<IAnimatedNumber, State> {
           nodeList.map((token, index) => {
             return (
               <Token
+                delay={delay}
                 token={token}
                 style={style}
                 value={value}
                 height={height}
                 easing={easing}
                 duration={duration}
-                delay={index * 100 + delay}
                 key={`${index}-${token.value}`}
               />
             );
