@@ -15,6 +15,7 @@ import type { IAnimatedNumber, NodeList } from "./types";
  * ```tsx
  * <AnimatedNumber
  *    delay={200}
+ *    stagger={0}
  *    duration={700}
  *    value="$12,000"
  *    easing={Easing.out(Easing.ease)}
@@ -73,6 +74,7 @@ export class AnimatedNumber extends Component<IAnimatedNumber, State> {
     const {
       value,
       style,
+      stagger = 0,
       delay = 200,
       duration = 700,
       easing = Easing.out(Easing.ease),
@@ -103,13 +105,13 @@ export class AnimatedNumber extends Component<IAnimatedNumber, State> {
           nodeList.map((token, index) => {
             return (
               <Token
-                delay={delay}
                 token={token}
                 style={style}
                 value={value}
                 height={height}
                 easing={easing}
                 duration={duration}
+                delay={delay + index * stagger}
                 key={`${index}-${token.value}`}
               />
             );

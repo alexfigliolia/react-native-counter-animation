@@ -13,6 +13,12 @@ export interface IAnimatedNumber {
    */
   delay?: number;
   /**
+   * Stagger
+   *
+   * A millisecond duration to stagger each character's animation
+   */
+  stagger?: number;
+  /**
    * Duration
    *
    * The duration of the animation

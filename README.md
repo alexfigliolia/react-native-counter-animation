@@ -36,6 +36,7 @@ const MyComponent = () => {
       {/* ...your component code */}
       <AnimatedNumber
         delay={200}
+        stagger={0}
         value={value}
         duration={700}
         easing={Easing.out(Easing.ease)}
@@ -48,6 +49,8 @@ const MyComponent = () => {
 ### Options
 
 `delay`: A millisecond duration to defer the animation
+
+`stagger`: A millisecond duration to stagger each character's animation
 
 `duration`: A millisecond duration for the animation
 

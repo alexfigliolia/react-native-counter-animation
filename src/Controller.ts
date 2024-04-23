@@ -1,22 +1,20 @@
 import type { NodeList } from "./types";
 
 export class Controller {
-  private static PARSER = /(\D+)?(\d+)(\D+)?(\d+)?(\D+)?/;
-
   public static looseEqual(int: number, raw: string) {
     // @ts-ignore
     return int == raw;
   }
 
   public static setup(value: string | number) {
-    const tokens = Controller.PARSER.exec(`${value}`) || [];
+    const tokens = this.captureGroups(`${value}`);
     tokens.shift();
     const nodeList: NodeList[] = [];
     for (const res of tokens) {
       if (res === null || res === undefined) {
         continue;
       }
-      if (isNaN(parseInt(res))) {
+      if (!this.isDigit(res)) {
         nodeList.push({ value: res, children: [res] });
       }
       for (let i = 0; i < res.length; i++) {
@@ -35,5 +33,33 @@ export class Controller {
       }
     }
     return nodeList;
+  }
+
+  private static captureGroups(value: string) {
+    const groups: string[] = [];
+    const { length } = value;
+    let left = 0;
+    while (left < length) {
+      const leftChar = value[left];
+      if (!this.isDigit(leftChar)) {
+        groups.push(leftChar);
+        left++;
+        continue;
+      }
+      const stack: string[] = [leftChar];
+      let right = left + 1;
+      while (this.isDigit(value[right])) {
+        stack.push(value[right]);
+        right++;
+      }
+      groups.push(stack.join(""));
+      left = right;
+    }
+    return groups;
+  }
+
+  private static isDigit(val: string) {
+    // @ts-ignore
+    return parseInt(val) == val;
   }
 }
