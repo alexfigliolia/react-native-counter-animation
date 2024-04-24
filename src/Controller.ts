@@ -54,7 +54,6 @@ export class Controller {
       groups.push(stack.join(""));
       left = right;
     }
-    console.log(groups);
     return groups;
   }
 
