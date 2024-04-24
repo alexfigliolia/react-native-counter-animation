@@ -8,7 +8,6 @@ export class Controller {
 
   public static setup(value: string | number) {
     const tokens = this.captureGroups(`${value}`);
-    tokens.shift();
     const nodeList: NodeList[] = [];
     for (const res of tokens) {
       if (res === null || res === undefined) {
@@ -55,6 +54,7 @@ export class Controller {
       groups.push(stack.join(""));
       left = right;
     }
+    console.log(groups);
     return groups;
   }
 
