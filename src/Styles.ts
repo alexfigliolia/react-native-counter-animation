@@ -17,5 +17,6 @@ export const Styles = StyleSheet.create({
   token: {
     zIndex: 1,
     overflow: "visible",
+    alignItems: "center",
   },
 });
